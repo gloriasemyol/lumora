@@ -1,4 +1,8 @@
+import dns from "dns";
 import mongoose from "mongoose";
+
+// Force Node.js to use Google public DNS to bypass Windows/ISP SRV lookup blocks
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 const connectDB = async () => {
   try {

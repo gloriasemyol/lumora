@@ -6,6 +6,7 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import aboutRoutes from "./routes/aboutRoutes.js";
 import contentRoutes from "./routes/contentRoutes.js";
+import uploadRoutes from "./routes/uploadRoutes.js";
 
 // Force Node.js to use Google public DNS to bypass Windows/ISP SRV lookup blocks globally
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
@@ -22,6 +23,7 @@ app.get("/api/health", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/about", aboutRoutes);
+app.use("/api/upload", uploadRoutes);
 app.use("/api", contentRoutes);
 
 // Error handler: must stay AFTER all routes
