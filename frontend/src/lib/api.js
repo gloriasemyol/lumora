@@ -25,9 +25,15 @@ api.interceptors.response.use(
 );
 
 // Turns "/uploads/abc.png" into "http://localhost:5000/uploads/abc.png"
+// and automatically optimizes Cloudinary images for modern formats and smaller sizes
 export const assetUrl = (path) => {
   if (!path) return "";
-  return path.startsWith("http") ? path : `${API_URL}${path}`;
+  if (path.startsWith("http")) {
+    return path.includes("res.cloudinary.com")
+      ? path.replace("/upload/", "/upload/f_auto,q_auto/")
+      : path;
+  }
+  return `${API_URL}${path}`;
 };
 
 export default api;

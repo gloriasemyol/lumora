@@ -15,7 +15,12 @@ export default function ProjectsSection({ projects }) {
           >
             <div className="aspect-video overflow-hidden bg-[#14141f]">
               {p.image ? (
-                <img src={assetUrl(p.image)} alt={p.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                <img 
+                  src={assetUrl(p.image)} 
+                  alt={p.title} 
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105" 
+                />
               ) : (
                 <div className="flex h-full items-center justify-center text-4xl font-extrabold text-white/10">{p.title[0]}</div>
               )}

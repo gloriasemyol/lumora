@@ -15,7 +15,12 @@ export default function BlogCard({ blog }) {
     >
       <div className="aspect-video overflow-hidden bg-[#14141f]">
         {blog.coverImage && (
-          <img src={assetUrl(blog.coverImage)} alt={blog.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+          <img 
+            src={assetUrl(blog.coverImage)} 
+            alt={blog.title} 
+            loading="lazy"
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-105" 
+          />
         )}
       </div>
       <div className="p-6">
