@@ -1,5 +1,5 @@
 // A simple controller to handle contact form submissions
-export const sendContactMessage = async (req, res, next) => {
+export const sendMessage = async (req, res, next) => {
   try {
     const { name, email, message } = req.body;
     
